@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content=" ">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+	<meta content="yes" name="apple-mobile-web-app-capable" /> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta content="telephone=no" name="format-detection" />
+	<title>SummerNote</title>
+	<link rel="stylesheet" href="http://yesnbst.com/Public/assets/front/web/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./summernote/summernote.css">
+</head>
+<body>
+	<div id="summernote"></div>
+
+	<button id="btn">获取代码</button>
+	
+
+	<script src="http://yesnbst.com/Public/assets/front/web/js/jquery.3.11.min.js"></script>
+	<script src="http://yesnbst.com/Public/assets/front/web/js/bootstrap.min.js"></script>
+	<script src="./summernote/summernote.js"></script>
+	<script src="./summernote/lang/summernote-zh-CN.js"></script>
+</body>
+<script>
+
+	$(document).ready(function(){
+		$('#summernote').summernote({						// init editor
+			lang: "zh-CN",									// set editor lang (must import lang file)
+			toolbar: [
+				['style', ['style']],
+				['font', ['bold', 'italic', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript', 'hr']],
+				['fontsize', ['fontsize']],
+				['color', ['color']],
+				['para', ['ul', 'ol', 'paragraph']],
+				['height', ['height']],
+				['table', ['table']],
+				['fontname', ['fontname']],
+				['insert', ['link', 'picture', 'video']],
+				['misc', ['undo', 'redo']],
+				['view', ['fullscreen', 'codeview', 'help']],
+				['diyButton', ['download']]
+			],
+			placeholder: "Welcome Use SummerNote",
+			height: 300,
+			minHeight: null,
+			maxHeight: null,
+			focus: false,				
+			disableDragAndDrop: false,				// 禁止拖拽
+		});
+	})
+
+	document.getElementById("btn").onclick = function () {
+		var code = $('#summernote').summernote('code');
+		console.log(code);
+	};
+
+
+	// $('#summernote').summernote('code');					// get editor code
+	// $("#summernote").summernote("code", code);			// set editor code
+	// $('#summernote').summernote('destroy');				// destory editor
+</script>
+</html>
